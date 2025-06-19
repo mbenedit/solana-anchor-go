@@ -144,7 +144,6 @@ func (item *IdlAccountItem) Walk(
 
 // TODO: verify with examples
 func (item *IdlAccountItem) UnmarshalJSON(data []byte) error {
-
 	var temp interface{}
 	if err := json.Unmarshal(data, &temp); err != nil {
 		return err
@@ -157,9 +156,6 @@ func (item *IdlAccountItem) UnmarshalJSON(data []byte) error {
 	switch v := temp.(type) {
 	case map[string]interface{}:
 		{
-			// Ln(ShakespeareBG("::IdlAccountItem"))
-			// spew.Dump(v)
-
 			if len(v) == 0 {
 				return nil
 			}
@@ -294,9 +290,6 @@ func (env *IdlType) UnmarshalJSON(data []byte) error {
 		}
 	case map[string]interface{}:
 		{
-			// Ln(PurpleBG("::IdlType"))
-			// spew.Dump(v)
-
 			if len(v) == 0 {
 				return nil
 			}
@@ -340,7 +333,6 @@ func (env *IdlType) UnmarshalJSON(data []byte) error {
 
 				env.asIdlTypeArray = &target
 			}
-			// panic(Sf("what is this?:\n%s", spew.Sdump(temp)))
 		}
 	default:
 		return fmt.Errorf("unknown kind: %s", spew.Sdump(temp))
@@ -505,8 +497,6 @@ func (env *IdlEnumFields) UnmarshalJSON(data []byte) error {
 			return err
 		}
 	}
-
-	// panic(Sf("what is this?:\n%s", spew.Sdump(temp)))
 
 	return nil
 }
